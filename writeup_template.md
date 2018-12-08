@@ -22,13 +22,21 @@ In this Project we were asked to Identify the Lane Lines just by the Camera Imag
 
 [//]: # (Image References)
 
-[image1]: ./writeup_images/Corner_detection.png "Corner Detection"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
+[image1]: ./writeup_images/Corner_detection.PNG "Corner Detection"
+[image2]: ./writeup_images/undistort.PNG "Undistorted"
+[image3]: ./writeup_images/grad_thresh.PNG "Gradient"
+[image4]: ./writeup_images/mag_thresh.PNG "Magnitude"
+[image5]: ./writeup_images/dir_grad.PNG "Directional"
+[image6]: ./writeup_images/comb_thresh.PNG "Combined"
+[image7]: ./writeup_images/warp_img.PNG "Perspective Transform"
+[image8]: ./writeup_images/histo.PNG "Histogram"
+[image9]: ./writeup_images/sliding_window.PNG "Sliding Window"
+[image10]: ./writeup_images/curva.PNG "Curvature"
+[image11]: ./writeup_images/offset.PNG "Car Offset"
+[image12]: ./writeup_images/lane_detected.PNG "Lane Area Detection"
+[image13]: ./writeup_images/metrics.PNG "Displaying Metrics over Image"
+
+[video1]: ./project_video_solution.mp4 "Video"
 
 ### Step1: Camera Calibration
 
@@ -45,24 +53,24 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 ### Step2: Undistorting an Image
 #### Undistorting the Image using cv2.undistort(). The undistorted image result is attached in the Notebook.
 
-![Undistorted Image][writeup_images/undistort.png]
+![title][image2]
 
 ### Step3: Calculated Gradient Threshold, Color Transform to create a Thresholded Binary Image
 In this step we have to use a combination of below thresholds which were calculated separately in my Notebook starting from Cell# 5 to 9
 
 #### Calculate the Directional Gradient by abs_sobel_thresh() function
-![Undistorted Image][writeup_images/grad_thresh.png]
+![title][image3]
 
 #### Calculate the Gradient Magnitude by mag_thresh()
-![Undistorted Image][writeup_images/mag_thresh.png]
+![title][image4]
 
 #### Calculate the Gradient Magnitude by dir_threshold()
-![Undistorted Image][writeup_images/dir_grad.png]
+![title][image5]
 
 #### Calculate the Color Threshold by hls_thresh()
 
 #### Combine all the gradient and check the results
-![Undistorted Image][writeup_images/comb_thresg.png]
+![title][image6]
 
 
 
@@ -89,28 +97,28 @@ The code is present in the Notebook cell# 10
              [1065, 720]]) # Bottom right 
 ```
 
-![Perspective Tranform][writeup_images/warp_img.png]
+![title][image7]
 
 ### Step5: Identified lane-line pixels and fit the Lane boundary
 
 Have created a Histogram for the Lower half of the images
 
-![Histogram][writeup_images/histo.png]
+![title][image8]
 
 Then, the starting left and right lanes positions are selected by looking to the max value of the histogram to the left and the right of the histogram's mid position.
 Have used Sliding Window mechanism to identify the most likely coordinates of the lane lines in a window, which slides vertically through the image for both the left and right line.
 Finally, a second order polynomial is calculated for both the left and right lane line. 
 The code is present in cells 12, 13 and 14 in the Notebook.
 
-![Sliding Window][writeup_images/sliding_window.png]
+![title][image9]
 
 ### Step6: Calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
 Have calculated the curvature, Car Offset, in the Notebook cells# 17, 18, 19 and 20
 
-![Curvature][writeup_images/curva.png]
+![title][image10]
 
-![Car Offset][writeup_images/offset.png]
+![title][image11]
 
 
 ### Step7: Result plotted back down onto the road such that the lane area is identified clearly.
@@ -119,13 +127,13 @@ Drawing lanes onto the warped blank image using fillPoly() and then blank will b
 
 The code can be found in the Notebook cell# 21
 
-![Lane Area Detection][writeup_images/lane_detected.png]
+![title][image12]
 
 ### Step8: Displaying the Lane Boundaries and Metrics Lane Curvature and Vehicle Position
 
 Code can be found in the Notebook Cell# 23 and 24
 
-![Lane Area Detection][writeup_images/metrics.png]
+![title][image13]
 
 ---
 
