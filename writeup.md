@@ -51,12 +51,13 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 ![title][image1]
 
-![title][image14]
 
 ### Step2: Undistorting an Image
 #### Undistorting the Image using cv2.undistort(). The undistorted image result is attached in the Notebook.
 
 ![title][image2]
+
+![title][image14]
 
 ### Step3: Calculated Gradient Threshold, Color Transform to create a Thresholded Binary Image
 In this step we have to use a combination of below thresholds which were calculated separately in my Notebook starting from Cell# 5 to 9
